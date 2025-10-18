@@ -2,6 +2,9 @@ const  username = document.getElementById("username");
 const login = document.getElementById("login");
 const bio = document.getElementById("bio");
 const avatar = document.getElementById("avatar");
+const Repositories = document.getElementById("Repositories");
+const Followers = document.getElementById("Followers");
+const Following = document.getElementById("Following");
 
 
 fetch("/api/me")
@@ -10,14 +13,13 @@ fetch("/api/me")
     if(!data.authenticated){
         window.location.href = '/';
     }else{
-        console.log(data.user.name);
         username.innerHTML = data.user.name;
-        console.log(data.user.login);
         login.innerHTML = data.user.login;
-        console.log(data.user.bio);
         bio.innerHTML = data.user.bio;
-        console.log(data.user.avatar_url);
         avatar.src = data.user.avatar_url;
+        Repositories.innerHTML = data.user.Repositories;
+        Followers.innerHTML = data.user.Followers;
+        Following.innerHTML = data.user.Following;
     };
   })
   .catch(error => {

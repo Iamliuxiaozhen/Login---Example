@@ -9,7 +9,7 @@ const logout_btn = document.getElementById("logout_btn");
 const Log_out_bin = document.getElementById("Log_out_bin");
 
 logout_btn.addEventListener('click',function(){
-    fetch('/api/exit.ts')
+    fetch('/api/exit')
     .then(data => {
         if(!data.status === 'ok'){
             alert("好像有点问题，我们好像未能给您退出登录。");

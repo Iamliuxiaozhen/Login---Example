@@ -40,7 +40,7 @@ export const onRequestGet: PagesFunction = async ({ request }) => {
       bio:user.bio,
       Followers:user.Followers,
       public_repos:user.public_repos,
-      Following:user.Following,
+      Following:user.following,
     };
 
     return new Response(JSON.stringify({ authenticated: true, user: safeUser }), {

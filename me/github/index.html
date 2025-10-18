@@ -15,13 +15,13 @@
     
     <div class="profile-container">
         <div class="avatar">
-            <img src="" alt="正在加载">
+            <img src="" alt="正在加载" id="avatar">
         </div>
         
         <div class="user-info">
-            <h1 class="username">正在加载</h1>
-            <p class="login">@正在加载</p>
-            <p class="bio">正在加载</p>
+            <h1 class="username" id="username">正在加载</h1>
+            <p class="login" id="login">@正在加载</p>
+            <p class="bio" id="bio">正在加载</p>
         </div>
         
         <div class="stats">
@@ -53,12 +53,7 @@
     
     <script>
         document.getElementById('logout-btn').addEventListener('click', function() {
-            if(confirm('确定要退出登录吗？')) {
-                // 这里可以添加实际的退出登录逻辑
-                alert('正在退出登录...');
-                // 实际应用中，这里应该清除登录状态并重定向到登录页面
-                // window.location.href = 'login.html';
-            }
+
         });
     </script>
 </body>

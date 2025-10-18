@@ -1,6 +1,4 @@
-const githublogin = document.getElementById('githublogin');
-const Status = document.getElementById("Status");
-const  username = document.getElementById("name");
+const  username = document.getElementById("username");
 const login = document.getElementById("login");
 const bio = document.getElementById("bio");
 const avatar = document.getElementById("avatar");

@@ -2,9 +2,14 @@ const githublogin = document.getElementById('githublogin');
 const Status = document.getElementById("Status");
 
 fetch("/api/me")
-  .then(response => {
-    // 不检查response.ok，直接处理所有响应状态（包括401）
-    // 这样401状态不会触发catch块
+  .then(async response => {
+    // 先检查响应状态
+    if (!response.ok) {
+      if (response.status === 401) {
+        return { authenticated: false };
+      }
+      throw new Error(`HTTP错误! 状态码: ${response.status}`);
+    }
     return response.json();
   })
   .then(data => {

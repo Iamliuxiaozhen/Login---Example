@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background-color: #0d1117;
+    color: #f0f6fc;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #21262d;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo svg {
+    width: 32px;
+    height: 32px;
+    fill: #f0f6fc;
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #238636;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 0 20px rgba(35, 134, 54, 0.3);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.username {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #f0f6fc;
+}
+
+.login {
+    font-size: 20px;
+    color: #7d8590;
+    margin-bottom: 16px;
+}
+
+.bio {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #e6edf3;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f0f6fc;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #7d8590;
+    margin-top: 4px;
+}
+
+
+
+.logout-btn {
+    background-color: #21262d;
+    color: #f85149;
+    border: 1px solid #f85149;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: auto;
+    margin-bottom: 40px;
+    width: 200px;
+}
+
+.logout-btn:hover {
+    background-color: rgba(248, 81, 73, 0.1);
+    transform: translateY(-2px);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #7d8590;
+    font-size: 14px;
+    border-top: 1px solid #21262d;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .username {
+        font-size: 24px;
+    }
+    
+    .login {
+        font-size: 16px;
+    }
+    
+    .bio {
+        font-size: 16px;
+    }
+    
+    .stats {
+        gap: 20px;
+    }
+}

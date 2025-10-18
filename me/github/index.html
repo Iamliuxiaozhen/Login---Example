@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的Github个人中心</title>
+    <link href="style/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1>Login - Example</h1>
+        </div>
+    </div>
+    
+    <div class="profile-container">
+        <div class="avatar">
+            <img src="" alt="正在加载">
+        </div>
+        
+        <div class="user-info">
+            <h1 class="username">正在加载</h1>
+            <p class="login">@正在加载</p>
+            <p class="bio">正在加载</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value"></div>
+                <div class="stat-label">Repositories</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value"></div>
+                <div class="stat-label">Followers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value"></div>
+                <div class="stat-label">Following</div>
+            </div>
+        </div>
+        
+        <button class="logout-btn" id="logout-btn">
+            退出登录
+        </button>
+        <button class="logout-btn" id="logout-btn">
+            注销授权
+        </button>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 Login - Example </p>
+    </div>
+    
+    <script>
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            if(confirm('确定要退出登录吗？')) {
+                // 这里可以添加实际的退出登录逻辑
+                alert('正在退出登录...');
+                // 实际应用中，这里应该清除登录状态并重定向到登录页面
+                // window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

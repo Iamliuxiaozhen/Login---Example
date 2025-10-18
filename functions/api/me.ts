@@ -33,7 +33,7 @@ export const onRequestGet: PagesFunction = async ({ request }) => {
     // 3. 返回精简用户信息
     const safeUser = {
       id: user.id,
-      login: user.login,
+      login: "@"+user.login,
       name: user.name,
       avatar_url: user.avatar_url,
       html_url: user.html_url,

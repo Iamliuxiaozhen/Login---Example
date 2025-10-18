@@ -12,9 +12,13 @@ fetch("/api/me")
     if(!data.authenticated){
         window.location.href = '/';
     }else{
+        console.log(data.user.name);
         username.innerHTML = data.user.name;
+        console.log(data.user.login);
         login.innerHTML = data.user.login;
+        console.log(data.user.bio);
         bio.innerHTML = data.user.bio;
+        console.log(data.user.avatar_url);
         avatar.src = data.user.avatar_url;
     };
   })

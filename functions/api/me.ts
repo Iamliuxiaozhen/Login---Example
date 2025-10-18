@@ -38,6 +38,9 @@ export const onRequestGet: PagesFunction = async ({ request }) => {
       avatar_url: user.avatar_url,
       html_url: user.html_url,
       bio:user.bio,
+      Followers:user.Followers,
+      public_repos:user.public_repos,
+      Following:user.Following,
     };
 
     return new Response(JSON.stringify({ authenticated: true, user: safeUser }), {

@@ -17,7 +17,7 @@ fetch("/api/me")
         login.innerHTML = data.user.login;
         bio.innerHTML = data.user.bio;
         avatar.src = data.user.avatar_url;
-        Repositories.innerHTML = data.user.Repositories;
+        Repositories.innerHTML = data.user.public_repos;
         Followers.innerHTML = data.user.Followers;
         Following.innerHTML = data.user.Following;
     };

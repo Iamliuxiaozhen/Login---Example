@@ -40,7 +40,7 @@ export const onRequestGet: PagesFunction = async ({ request, env }) => {
       status: 302,
       headers: {
         "Set-Cookie": cookie,
-        Location: "/ne/github",
+        Location: "/me/github",
       },
     });
   } catch (err: any) {

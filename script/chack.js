@@ -10,6 +10,7 @@ fetch("/api/me")
     if(login_json.authenticated){
         console.log("已登录");
         Status.innerHTML = '你已登录，等等跳转';
+        window.location.href = "/me/github/"
     }else{
         console.log("未登录");
         githublogin.removeAttribute('disabled');

@@ -25,9 +25,20 @@ logout_btn.addEventListener('click',function(){
 })
 
 Log_out_bin.addEventListener('click',function(){
-    alert("再等等，注销授权功能正在上线")
+    fetch('/api/log_out.ts')
+     .then(data => {
+        if(!data.status === 'ok'){
+            alert("好像有点问题，我们好像未能给您退出登录。");
+        }
+        else{
+            window.location.href = '/';
+        }
+    })
+    .catch(error =>{
+        console.error(error);
+        alert("出现错误，我们好像未能给您退出登录。")
+    })
 })
-
 
 fetch("/api/me")
   .then(response => response.json())

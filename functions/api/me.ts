@@ -7,7 +7,7 @@ export const onRequestGet: PagesFunction = async ({ request }) => {
 
     if (!token || token.length < 10) {
       return new Response(JSON.stringify({ authenticated: false }), {
-        status: 401,
+        status: 200,
         headers: { "Content-Type": "application/json" },
       });
     }

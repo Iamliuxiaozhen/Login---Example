@@ -3,7 +3,7 @@ const mail = document.getElementById("mail");
 const username = document.getElementById("username");
 const logout_btn = document.getElementById("logout_btn");
 
-fetch("api/microsoft/me")
+fetch("/api/microsoft/me")
 .then(response => response.json())
 .then(data =>{
     if(!data.authenticated){

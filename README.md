@@ -11,6 +11,8 @@
 |Google|⏳正在进行|⏳正在进行|
 |Facebook|⏹计划终止|⏹计划终止|
 
+>[!Important]
+>本仓库已于2025年10月19日公开。
 
 © 2025 Login-example.
 本作品采用 CC BY-NC 4.0 国际许可协议

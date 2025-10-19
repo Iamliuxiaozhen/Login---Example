@@ -22,7 +22,7 @@ export const onRequestGet: PagesFunction = async ({ request, env }) => {
         code,
         grant_type: "authorization_code",
         redirect_uri: env.MICROSOFT_REDIRECT_URI, // 你的回调地址
-        scope: "User.Read",
+        scope: "openid profile email User.Read",
       }),
     });
 

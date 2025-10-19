@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import type { PagesFunction } from '@cloudflare/workers-types';
 
 export const onRequest: PagesFunction = async (context) => {
@@ -6,33 +8,7 @@ export const onRequest: PagesFunction = async (context) => {
   const host = request.headers.get("host") || "";
   const hostname = host.split(":")[0];
 
-  // 从 Cookie 中提取 GitHub OAuth token（假设名为 github_token）
-  const tokenMatch = cookieHeader.match(/github_token=([^;]+)/);
-  const githubToken = tokenMatch?.[1];
-
-  // GitHub OAuth App 的 client_id 和 client_secret（建议通过环境变量注入）
-  const clientId = context.env.GITHUB_CLIENT_ID;
-  const clientSecret = context.env.GITHUB_CLIENT_SECRET;
-
-  // 调用 GitHub API 注销 token
-  if (githubToken && clientId && clientSecret) {
-    const revokeUrl = `https://api.github.com/applications/${clientId}/token`;
-    const authHeader = 'Basic ' + btoa(`${clientId}:${clientSecret}`);
-
-    await fetch(revokeUrl, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': authHeader,
-        'Accept': 'application/vnd.github+json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ access_token: githubToken }),
-    }).catch((err) => {
-      console.error("GitHub token revoke failed:", err);
-    });
-  }
-
-  // 清除所有 Cookie
+  // 拆分所有 cookie 名称
   const cookieNames = cookieHeader
     .split(";")
     .map(s => s.split("=")[0].trim())
@@ -46,6 +22,7 @@ export const onRequest: PagesFunction = async (context) => {
     "Cache-Control": "no-store",
   });
 
+  // 为每个 cookie 添加 Set-Cookie 头，覆盖 HttpOnly/带 domain 的 cookie
   for (const name of cookieNames) {
     headers.append("Set-Cookie", `${name}=; ${baseAttrs}`);
     if (hostname && hostname !== "localhost") {

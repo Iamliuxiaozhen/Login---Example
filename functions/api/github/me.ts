@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export const onRequestGet: PagesFunction = async ({ request }) => {
   try {
     // 1. 解析 Cookie

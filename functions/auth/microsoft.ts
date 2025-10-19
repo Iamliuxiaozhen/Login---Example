@@ -9,26 +9,30 @@ export const onRequestGet: PagesFunction = async ({ request, env }) => {
       return new Response(JSON.stringify({ error: "missing_code" }), { status: 400 });
     }
 
-    const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
+    // 1. 获取 access token
+    const tokenRes = await fetch("https://login.microsoftonline.com/common/oauth2/v2.0/token", {
       method: "POST",
       headers: {
-        Accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
         "User-Agent": "Cloudflare-Worker-OAuth",
       },
       body: new URLSearchParams({
-        client_id: env.GITHUB_CLIENT_ID,
-        client_secret: env.GITHUB_CLIENT_SECRET,
+        client_id: env.MICROSOFT_CLIENT_ID,
+        client_secret: env.MICROSOFT_CLIENT_SECRET,
         code,
+        grant_type: "authorization_code",
+        redirect_uri: env.MICROSOFT_REDIRECT_URI, // 你的回调地址
       }),
     });
 
-    const tokenData = await tokenRes.json(); // 正确解析 JSON
+    const tokenData = await tokenRes.json();
     const accessToken = tokenData.access_token;
 
     if (!accessToken || accessToken.length < 10) {
       return new Response(JSON.stringify({ error: "no_token", detail: JSON.stringify(tokenData) }), { status: 401 });
     }
 
+    // 2. 设置 cookie
     const cookie = [
       `token=${accessToken}`,
       "Path=/",
@@ -38,11 +42,12 @@ export const onRequestGet: PagesFunction = async ({ request, env }) => {
       `Expires=${new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString()}`,
     ].join("; ");
 
+    // 3. 重定向到你的页面
     return new Response(null, {
       status: 302,
       headers: {
         "Set-Cookie": cookie,
-        Location: "/me/github",
+        Location: "/me/microsoft",
       },
     });
   } catch (err: any) {

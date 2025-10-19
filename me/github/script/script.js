@@ -40,7 +40,7 @@ Log_out_bin.addEventListener('click',function(){
     })
 })
 
-fetch("/api/me")
+fetch("/api/github/me")
   .then(response => response.json())
   .then(data => {
     if(!data.authenticated){

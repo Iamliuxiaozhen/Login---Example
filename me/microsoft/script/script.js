@@ -9,8 +9,8 @@ fetch("/api/microsoft/me")
     if(!data.authenticated){
         window.location.href = '/';
     }else{
-        username.innerHTML = data.displayName;
-        mail.innerHTML = data.mail;
+        username.innerHTML = data.user.displayName;
+        mail.innerHTML = data.user.mail;
     };
 })
 .catch(error => {

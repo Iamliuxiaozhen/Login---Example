@@ -9,7 +9,7 @@ fetch("/api/microsoft/me")
     if(!data.authenticated){
         window.location.href = '/';
     }else{
-        username.innerHTML = displayName;
+        username.innerHTML = data.displayName;
         mail.innerHTML = data.mail;
     };
 })

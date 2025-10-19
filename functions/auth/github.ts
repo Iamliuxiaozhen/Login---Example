@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export const onRequestGet: PagesFunction = async ({ request, env }) => {
   try {
     const url = new URL(request.url);

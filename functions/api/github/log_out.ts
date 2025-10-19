@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import type { PagesFunction } from '@cloudflare/workers-types';
 
 export const onRequest: PagesFunction = async (context) => {

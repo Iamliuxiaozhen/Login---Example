@@ -3,14 +3,14 @@ const mail = document.getElementById("mail");
 const username = document.getElementById("username");
 const logout_btn = document.getElementById("logout_btn");
 
-fetch("api/microsoft/me")
+fetch("/api/microsoft/me")
 .then(response => response.json())
 .then(data =>{
     if(!data.authenticated){
         window.location.href = '/';
     }else{
-        username.innerHTML = data.displayName;
-        mail.innerHTML = data.mail;
+        username.innerHTML = data.user.displayName;
+        mail.innerHTML = data.user.mail;
     };
 })
 .catch(error => {

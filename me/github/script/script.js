@@ -10,8 +10,9 @@ const Log_out_bin = document.getElementById("Log_out_bin");
 
 logout_btn.addEventListener('click',function(){
     fetch('/api/github/exit')
+    .then(response => response.json())
     .then(data => {
-        if(!data.status === 'ok'){
+        if(data.status !== 'ok'){
             alert("好像有点问题，我们好像未能给您退出登录。");
         }
         else{
@@ -26,8 +27,9 @@ logout_btn.addEventListener('click',function(){
 
 Log_out_bin.addEventListener('click',function(){
     fetch('/api/github/log_out')
-     .then(data => {
-        if(!data.status === 'ok'){
+    .then(response => response.json())
+    .then(data => {
+        if(data.status !== 'ok'){
             alert("好像有点问题，我们好像未能给您退出登录。");
         }
         else{
@@ -51,8 +53,8 @@ fetch("/api/github/me")
         bio.innerHTML = data.user.bio;
         avatar.src = data.user.avatar_url;
         Repositories.innerHTML = data.user.public_repos;
-        Followers.innerHTML = data.user.Followers;
-        Following.innerHTML = data.user.Following;
+        Followers.innerHTML = data.user.followers;
+        Following.innerHTML = data.user.following;
     };
   })
   .catch(error => {

@@ -15,14 +15,14 @@
             <p>点击下方按钮继续</p>
         </div>
         
-        <button class="login-button" id="github-login"  id="githublogin">
+        <button class="login-button" id="github-login"  id="githublogin" style="background-color:dimgray;">
             <svg viewBox="0 0 16 16" version="1.1" aria-hidden="true">
                 <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
             </svg>
             使用 GitHub 登录
         </button>
         
-        <button class="login-button" id="microsoft-login">
+        <button class="login-button" id="microsoft-login" disabled style="background-color:dimgray;">
             <svg viewBox="0 0 16 16" version="1.1" aria-hidden="true">
                 <path fill="#f25022" d="M1 1h6.5v6.5H1V1z"/>
                 <path fill="#7fba00" d="M8.5 1H15v6.5H8.5V1z"/>
@@ -32,11 +32,14 @@
             使用 Microsoft 登录
         </button>
 
+        <br>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAB7b6u8SPKylOvzp" id="cf-turnstile"></div>
         
+        <p id="verifytext"></p>
+
         <div class="footer">
             <p>登录即表示您同意我们的<a href="#" id="Terms_Service">服务条款</a>和<a href="#" id="Privacy_Policy">隐私政策</a></p>
         </div>
-        <p id="Status">正在获取登录状态</p>
     </div>
     
     <script>
@@ -63,6 +66,32 @@
             // 实际请使用以下代码跳转到隐私政策
             //window.location.href = ''
         })
+
+        document.getElementById("cf-turnstile").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const token = document.querySelector("[name='cf-turnstile-response']").value;
+
+        const formData = new FormData();
+        formData.append("cf-turnstile-response", token);
+        formData.append("username", document.querySelector("[name='username']").value);
+
+        const res = await fetch("/verify", {
+        method: "POST",
+        body: formData,
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+            document.getElementById("verifytext").innerHTML = "验证通过";
+            document.getElementById("github-login").remove("disabled");
+            document.getElementById("github-login").style.background-color == black;
+        } else {
+            document.getElementById("verifytext").innerHTML = "验证未通过，请重试";
+        }
+    });
     </script>
 </body>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </html>

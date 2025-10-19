@@ -53,8 +53,8 @@ fetch("/api/github/me")
         bio.innerHTML = data.user.bio;
         avatar.src = data.user.avatar_url;
         Repositories.innerHTML = data.user.public_repos;
-        Followers.innerHTML = data.user.followers;
-        Following.innerHTML = data.user.following;
+        Followers.innerHTML = data.user.Followers;
+        Following.innerHTML = data.user.Following;
     };
   })
   .catch(error => {

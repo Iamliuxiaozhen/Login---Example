@@ -10,7 +10,7 @@ export const onRequestGet: PagesFunction = async ({ request, env }) => {
     }
 
     // 1. 获取 access token
-    const tokenRes = await fetch("https://login.microsoftonline.com/common/oauth2/v2.0/token", {
+    const tokenRes = await fetch("https://login.microsoftonline.com/consumers/oauth2/v2.0/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私条款|Login - Example</title>
+    <link href="css/style.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<div id="pages"></div>
+<script>
+    fetch("text.md")
+    .then(response => response.text())
+    .then(markdown => {
+        const html = marked.parse(markdown);
+        document.getElementById("pages").innerHTML =html;
+    })
+    .catch(console.error( error=>{
+        console.error(error);
+    }))
+</script>

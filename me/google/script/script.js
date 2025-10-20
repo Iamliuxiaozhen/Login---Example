@@ -4,7 +4,7 @@ const email = document.getElementById("email");
 const logout_btn = document.getElementById("logout_btn");
 
 logout_btn.addEventListener("click",function(){
-    fetch("api/google/exit")
+    fetch("/api/google/exit")
     .then(response => response.json())
     .then(data => {
         if(data.status !== 'ok'){
@@ -20,7 +20,7 @@ logout_btn.addEventListener("click",function(){
     })
 })
 
-fetch("api/google/me")
+fetch("/api/google/me")
   .then(response => response.json())
   .then(data => {
     if(!data.authenticated){

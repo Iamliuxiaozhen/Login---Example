@@ -16,6 +16,11 @@
 >[!Important]
 >本仓库已于2025年10月19日公开。
 
+## 作者的留言：
+  本来想作为模板库的，所以没有协议及条款。但是根据Login-example的发展情况，增加了条款。
+
 © 2025 Login-example.
+[服务协议](agreement/terms-service/text.md)
+[隐私政策](agreement/PrivacyPolicy/text.md)  
 本作品采用 CC BY-NC 4.0 国际许可协议
  进行许可。禁止商用，转载需署名。

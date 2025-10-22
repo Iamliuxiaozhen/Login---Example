@@ -16,8 +16,20 @@
 >[!Important]
 >本仓库已于2025年10月19日公开。
 
-## 作者的留言：
-  本来想作为模板库的，所以没有协议及条款。但是根据Login-example的发展情况，增加了条款。
+## 重要声明
+
+本网站仅作为登录演示使用，不包含任何钓鱼内容。本网站及其后端代码均已开源，如有疑问可自行审查源代码。
+
+**仓库地址：** [https://github.com/Iamliuxiaozhen/Login---Example](https://github.com/Iamliuxiaozhen/Login---Example)
+
+---
+
+## Important Notice
+
+This website is for **OAuth login demonstration purposes only** and does **not** contain any phishing content.  
+Both the frontend and backend code are **open-source**, and anyone may review the source code for verification.
+
+**Repository:** [https://github.com/Iamliuxiaozhen/Login---Example](https://github.com/Iamliuxiaozhen/Login---Example)
 
 © 2025 Login-example.
 [服务协议](agreement/terms-service/text.md)

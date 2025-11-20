@@ -1,5 +1,23 @@
 {
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20251011.0"
-  }
+  },
+  "name": "login---example",
+  "version": "1.0.0",
+  "description": "这是一个登录演示项目，教你接入各平台的登录，教程在Wiki里。您可用在网页端体验。 [https://login---example.pages.dev/](https://login---example.pages.dev/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iamliuxiaozhen/Login---Example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iamliuxiaozhen/Login---Example/issues"
+  },
+  "homepage": "https://github.com/Iamliuxiaozhen/Login---Example#readme"
 }
